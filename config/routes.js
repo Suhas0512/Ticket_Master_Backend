@@ -4,14 +4,13 @@ const customerControllers=require('../app/controllers/customersControllers')
 const departmentControllers=require('../app/controllers/departmentsControllers')
 const employeeControllers=require('../app/controllers/employeesControllers')
 const ticketControllers=require('../app/controllers/ticketsControllers')
-const userController = require("../app/controllers/userController")
+const usersController = require("../app/controllers/userController")
 const authenticateUser = require("../app/middlewares/authenticate")
 
-router.get("/register", userController.list);
-router.post("/register", userController.create);
-router.put("/register/:id", userController.update);
-router.delete("/register/:id", userController.destroy);
-router.post("/login", userController.login);
+router.post('/register',usersController.register)
+router.post('/login',usersController.login)
+router.get('/account',authenticateUser,usersController.account)
+router.delete('/logout',authenticateUser,usersController.logout)
 
 router.get('/customers',authenticateUser,customerControllers.list)
 router.get('/customers/:id',authenticateUser,customerControllers.show)

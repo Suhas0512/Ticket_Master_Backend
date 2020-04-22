@@ -17,11 +17,6 @@ const employeeSchema = new Schema({
     },
     department:{
         type:Schema.Types.ObjectId,required:true,ref:'Department'
-    },
-    user : {
-        type : Schema.Types.ObjectId,
-        required : true,
-        ref : 'User'
     }
 })
 //model
